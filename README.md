@@ -41,3 +41,35 @@ The system consists of several key components:
    ```bash
    git clone https://github.com/IRONalways17/intelligent-traffic-system.git
    cd intelligent-traffic-system
+
+Install required packages:
+
+bash
+pip install -r requirements.txt
+Download YOLOv3 weights and configuration:
+
+bash
+wget https://pjreddie.com/media/files/yolov3.weights -O yolov3.weights
+wget https://raw.githubusercontent.com/pjreddie/darknet/master/cfg/yolov3.cfg -O yolov3.cfg
+wget https://raw.githubusercontent.com/pjreddie/darknet/master/data/coco.names -O coco.names
+Set up the database:
+
+bash
+mysql -u root -p < traffic_database_setup.sql
+Usage
+Configuration
+Edit the config.json file to set up your system.
+
+Running the System
+Run the traffic analyzer:
+
+bash
+python traffic_analyzer.py --config config.json
+Run the signal optimizer:
+
+bash
+python signal_optimizer.py --config config.json
+Launch the dashboard:
+
+bash
+python dashboard.py --port 8050   
